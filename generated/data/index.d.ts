@@ -1,19 +1,3 @@
-/**
- * Copyright 2025 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import { ConnectorConfig, DataConnect, QueryRef, QueryPromise, MutationRef, MutationPromise } from 'firebase/data-connect';
 
 export const connectorConfig: ConnectorConfig;
@@ -22,6 +6,8 @@ export type TimestampString = string;
 export type UUIDString = string;
 export type Int64String = string;
 export type DateString = string;
+
+
 
 
 export interface Actor_Key {
@@ -337,90 +323,134 @@ export interface Watch_Key {
   __typename?: 'Watch_Key';
 }
 
-/* Allow users to create refs without passing in DataConnect */
-export function updateUserRef(vars: UpdateUserVariables): MutationRef<UpdateUserData, UpdateUserVariables>;
-/* Allow users to pass in custom DataConnect instances */
-export function updateUserRef(dc: DataConnect, vars: UpdateUserVariables): MutationRef<UpdateUserData, UpdateUserVariables>;
+interface UpdateUserRef {
+  /* Allow users to create refs without passing in DataConnect */
+  (vars: UpdateUserVariables): MutationRef<UpdateUserData, UpdateUserVariables>;
+  /* Allow users to pass in custom DataConnect instances */
+  (dc: DataConnect, vars: UpdateUserVariables): MutationRef<UpdateUserData, UpdateUserVariables>;
+  operationName: string;
+}
+export const updateUserRef: UpdateUserRef;
 
 export function updateUser(vars: UpdateUserVariables): MutationPromise<UpdateUserData, UpdateUserVariables>;
 export function updateUser(dc: DataConnect, vars: UpdateUserVariables): MutationPromise<UpdateUserData, UpdateUserVariables>;
 
-/* Allow users to create refs without passing in DataConnect */
-export function addWatchRef(vars: AddWatchVariables): MutationRef<AddWatchData, AddWatchVariables>;
-/* Allow users to pass in custom DataConnect instances */
-export function addWatchRef(dc: DataConnect, vars: AddWatchVariables): MutationRef<AddWatchData, AddWatchVariables>;
+interface AddWatchRef {
+  /* Allow users to create refs without passing in DataConnect */
+  (vars: AddWatchVariables): MutationRef<AddWatchData, AddWatchVariables>;
+  /* Allow users to pass in custom DataConnect instances */
+  (dc: DataConnect, vars: AddWatchVariables): MutationRef<AddWatchData, AddWatchVariables>;
+  operationName: string;
+}
+export const addWatchRef: AddWatchRef;
 
 export function addWatch(vars: AddWatchVariables): MutationPromise<AddWatchData, AddWatchVariables>;
 export function addWatch(dc: DataConnect, vars: AddWatchVariables): MutationPromise<AddWatchData, AddWatchVariables>;
 
-/* Allow users to create refs without passing in DataConnect */
-export function addReviewRef(vars: AddReviewVariables): MutationRef<AddReviewData, AddReviewVariables>;
-/* Allow users to pass in custom DataConnect instances */
-export function addReviewRef(dc: DataConnect, vars: AddReviewVariables): MutationRef<AddReviewData, AddReviewVariables>;
+interface AddReviewRef {
+  /* Allow users to create refs without passing in DataConnect */
+  (vars: AddReviewVariables): MutationRef<AddReviewData, AddReviewVariables>;
+  /* Allow users to pass in custom DataConnect instances */
+  (dc: DataConnect, vars: AddReviewVariables): MutationRef<AddReviewData, AddReviewVariables>;
+  operationName: string;
+}
+export const addReviewRef: AddReviewRef;
 
 export function addReview(vars: AddReviewVariables): MutationPromise<AddReviewData, AddReviewVariables>;
 export function addReview(dc: DataConnect, vars: AddReviewVariables): MutationPromise<AddReviewData, AddReviewVariables>;
 
-/* Allow users to create refs without passing in DataConnect */
-export function deleteWatchRef(vars: DeleteWatchVariables): MutationRef<DeleteWatchData, DeleteWatchVariables>;
-/* Allow users to pass in custom DataConnect instances */
-export function deleteWatchRef(dc: DataConnect, vars: DeleteWatchVariables): MutationRef<DeleteWatchData, DeleteWatchVariables>;
+interface DeleteWatchRef {
+  /* Allow users to create refs without passing in DataConnect */
+  (vars: DeleteWatchVariables): MutationRef<DeleteWatchData, DeleteWatchVariables>;
+  /* Allow users to pass in custom DataConnect instances */
+  (dc: DataConnect, vars: DeleteWatchVariables): MutationRef<DeleteWatchData, DeleteWatchVariables>;
+  operationName: string;
+}
+export const deleteWatchRef: DeleteWatchRef;
 
 export function deleteWatch(vars: DeleteWatchVariables): MutationPromise<DeleteWatchData, DeleteWatchVariables>;
 export function deleteWatch(dc: DataConnect, vars: DeleteWatchVariables): MutationPromise<DeleteWatchData, DeleteWatchVariables>;
 
-/* Allow users to create refs without passing in DataConnect */
-export function homePageRef(): QueryRef<HomePageData, undefined>;
-/* Allow users to pass in custom DataConnect instances */
-export function homePageRef(dc: DataConnect): QueryRef<HomePageData, undefined>;
+interface HomePageRef {
+  /* Allow users to create refs without passing in DataConnect */
+  (): QueryRef<HomePageData, undefined>;
+  /* Allow users to pass in custom DataConnect instances */
+  (dc: DataConnect): QueryRef<HomePageData, undefined>;
+  operationName: string;
+}
+export const homePageRef: HomePageRef;
 
 export function homePage(): QueryPromise<HomePageData, undefined>;
 export function homePage(dc: DataConnect): QueryPromise<HomePageData, undefined>;
 
-/* Allow users to create refs without passing in DataConnect */
-export function searchMoviesRef(vars: SearchMoviesVariables): QueryRef<SearchMoviesData, SearchMoviesVariables>;
-/* Allow users to pass in custom DataConnect instances */
-export function searchMoviesRef(dc: DataConnect, vars: SearchMoviesVariables): QueryRef<SearchMoviesData, SearchMoviesVariables>;
+interface SearchMoviesRef {
+  /* Allow users to create refs without passing in DataConnect */
+  (vars: SearchMoviesVariables): QueryRef<SearchMoviesData, SearchMoviesVariables>;
+  /* Allow users to pass in custom DataConnect instances */
+  (dc: DataConnect, vars: SearchMoviesVariables): QueryRef<SearchMoviesData, SearchMoviesVariables>;
+  operationName: string;
+}
+export const searchMoviesRef: SearchMoviesRef;
 
 export function searchMovies(vars: SearchMoviesVariables): QueryPromise<SearchMoviesData, SearchMoviesVariables>;
 export function searchMovies(dc: DataConnect, vars: SearchMoviesVariables): QueryPromise<SearchMoviesData, SearchMoviesVariables>;
 
-/* Allow users to create refs without passing in DataConnect */
-export function moviePageRef(vars: MoviePageVariables): QueryRef<MoviePageData, MoviePageVariables>;
-/* Allow users to pass in custom DataConnect instances */
-export function moviePageRef(dc: DataConnect, vars: MoviePageVariables): QueryRef<MoviePageData, MoviePageVariables>;
+interface MoviePageRef {
+  /* Allow users to create refs without passing in DataConnect */
+  (vars: MoviePageVariables): QueryRef<MoviePageData, MoviePageVariables>;
+  /* Allow users to pass in custom DataConnect instances */
+  (dc: DataConnect, vars: MoviePageVariables): QueryRef<MoviePageData, MoviePageVariables>;
+  operationName: string;
+}
+export const moviePageRef: MoviePageRef;
 
 export function moviePage(vars: MoviePageVariables): QueryPromise<MoviePageData, MoviePageVariables>;
 export function moviePage(dc: DataConnect, vars: MoviePageVariables): QueryPromise<MoviePageData, MoviePageVariables>;
 
-/* Allow users to create refs without passing in DataConnect */
-export function watchHistoryPageRef(vars?: WatchHistoryPageVariables): QueryRef<WatchHistoryPageData, WatchHistoryPageVariables>;
-/* Allow users to pass in custom DataConnect instances */
-export function watchHistoryPageRef(dc: DataConnect, vars?: WatchHistoryPageVariables): QueryRef<WatchHistoryPageData, WatchHistoryPageVariables>;
+interface WatchHistoryPageRef {
+  /* Allow users to create refs without passing in DataConnect */
+  (vars?: WatchHistoryPageVariables): QueryRef<WatchHistoryPageData, WatchHistoryPageVariables>;
+  /* Allow users to pass in custom DataConnect instances */
+  (dc: DataConnect, vars?: WatchHistoryPageVariables): QueryRef<WatchHistoryPageData, WatchHistoryPageVariables>;
+  operationName: string;
+}
+export const watchHistoryPageRef: WatchHistoryPageRef;
 
 export function watchHistoryPage(vars?: WatchHistoryPageVariables): QueryPromise<WatchHistoryPageData, WatchHistoryPageVariables>;
 export function watchHistoryPage(dc: DataConnect, vars?: WatchHistoryPageVariables): QueryPromise<WatchHistoryPageData, WatchHistoryPageVariables>;
 
-/* Allow users to create refs without passing in DataConnect */
-export function browseMoviesRef(vars?: BrowseMoviesVariables): QueryRef<BrowseMoviesData, BrowseMoviesVariables>;
-/* Allow users to pass in custom DataConnect instances */
-export function browseMoviesRef(dc: DataConnect, vars?: BrowseMoviesVariables): QueryRef<BrowseMoviesData, BrowseMoviesVariables>;
+interface BrowseMoviesRef {
+  /* Allow users to create refs without passing in DataConnect */
+  (vars?: BrowseMoviesVariables): QueryRef<BrowseMoviesData, BrowseMoviesVariables>;
+  /* Allow users to pass in custom DataConnect instances */
+  (dc: DataConnect, vars?: BrowseMoviesVariables): QueryRef<BrowseMoviesData, BrowseMoviesVariables>;
+  operationName: string;
+}
+export const browseMoviesRef: BrowseMoviesRef;
 
 export function browseMovies(vars?: BrowseMoviesVariables): QueryPromise<BrowseMoviesData, BrowseMoviesVariables>;
 export function browseMovies(dc: DataConnect, vars?: BrowseMoviesVariables): QueryPromise<BrowseMoviesData, BrowseMoviesVariables>;
 
-/* Allow users to create refs without passing in DataConnect */
-export function getMoviesRef(vars?: GetMoviesVariables): QueryRef<GetMoviesData, GetMoviesVariables>;
-/* Allow users to pass in custom DataConnect instances */
-export function getMoviesRef(dc: DataConnect, vars?: GetMoviesVariables): QueryRef<GetMoviesData, GetMoviesVariables>;
+interface GetMoviesRef {
+  /* Allow users to create refs without passing in DataConnect */
+  (vars?: GetMoviesVariables): QueryRef<GetMoviesData, GetMoviesVariables>;
+  /* Allow users to pass in custom DataConnect instances */
+  (dc: DataConnect, vars?: GetMoviesVariables): QueryRef<GetMoviesData, GetMoviesVariables>;
+  operationName: string;
+}
+export const getMoviesRef: GetMoviesRef;
 
 export function getMovies(vars?: GetMoviesVariables): QueryPromise<GetMoviesData, GetMoviesVariables>;
 export function getMovies(dc: DataConnect, vars?: GetMoviesVariables): QueryPromise<GetMoviesData, GetMoviesVariables>;
 
-/* Allow users to create refs without passing in DataConnect */
-export function detailedWatchHistoryRef(): QueryRef<DetailedWatchHistoryData, undefined>;
-/* Allow users to pass in custom DataConnect instances */
-export function detailedWatchHistoryRef(dc: DataConnect): QueryRef<DetailedWatchHistoryData, undefined>;
+interface DetailedWatchHistoryRef {
+  /* Allow users to create refs without passing in DataConnect */
+  (): QueryRef<DetailedWatchHistoryData, undefined>;
+  /* Allow users to pass in custom DataConnect instances */
+  (dc: DataConnect): QueryRef<DetailedWatchHistoryData, undefined>;
+  operationName: string;
+}
+export const detailedWatchHistoryRef: DetailedWatchHistoryRef;
 
 export function detailedWatchHistory(): QueryPromise<DetailedWatchHistoryData, undefined>;
 export function detailedWatchHistory(dc: DataConnect): QueryPromise<DetailedWatchHistoryData, undefined>;

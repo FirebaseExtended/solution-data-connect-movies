@@ -1,3 +1,14 @@
+# Generated React README
+This README will guide you through the process of using the generated React SDK package for the connector `connector`. It will also provide examples on how to use your generated SDK to call your Data Connect queries and mutations.
+
+**If you're looking for the `JavaScript README`, you can find it at [`data/README.md`](../README.md)**
+
+***NOTE:** This README is generated alongside the generated SDK. If you make changes to this file, they will be overwritten when the SDK is regenerated.*
+
+You can use this generated SDK by importing from the package `@app/data/react` as shown below. Both CommonJS and ESM imports are supported.
+
+You can also follow the instructions from the [Data Connect documentation](https://firebase.google.com/docs/data-connect/web-sdk#react).
+
 # Table of Contents
 - [**Overview**](#generated-react-readme)
 - [**TanStack Query Firebase & TanStack React Query**](#tanstack-query-firebase-tanstack-react-query)
@@ -19,15 +30,6 @@
   - [*AddReview*](#addreview)
   - [*DeleteWatch*](#deletewatch)
 
-# Generated React README
-This README will guide you through the process of using the generated React SDK package for the connector `connector`. It will also provide examples on how to use your generated SDK to call your Data Connect queries and mutations.
-
-***NOTE:** This README is generated alongside the generated SDK. If you make changes to this file, they will be overwritten when the SDK is regenerated.*
-
-You can use this generated SDK by importing from the package `@app/data/react` as shown below. Both CommonJS and ESM imports are supported.
-
-You can also follow the instructions from the [Data Connect documentation](https://firebase.google.com/docs/data-connect/web-sdk#react).
-
 # TanStack Query Firebase & TanStack React Query
 This SDK provides [React](https://react.dev/) hooks generated specific to your application, for the operations found in the connector `connector`. These hooks are generated using [TanStack Query Firebase](https://react-query-firebase.invertase.dev/) by our partners at Invertase, a library built on top of [TanStack React Query v5](https://tanstack.com/query/v5/docs/framework/react/overview).
 
@@ -42,7 +44,7 @@ npm i --save @tanstack/react-query @tanstack-query-firebase/react
 npm i --save firebase@latest # Note: React has a peer dependency on ^11.3.0
 ```
 
-You can also follow the installation instructions from the [Data Connect documentation](https://firebase.google.com/docs/data-connect/web-sdk#install_tanstack_query_firebase_packages), or the [TanStack Query Firebase documentation](https://react-query-firebase.invertase.dev/react) and [TanStack React Query documentation](https://tanstack.com/query/v5/docs/framework/react/installation).
+You can also follow the installation instructions from the [Data Connect documentation](https://firebase.google.com/docs/data-connect/web-sdk#tanstack-install), or the [TanStack Query Firebase documentation](https://react-query-firebase.invertase.dev/react) and [TanStack React Query documentation](https://tanstack.com/query/v5/docs/framework/react/installation).
 
 ## Configuring TanStack Query
 In order to use the React generated SDK in your application, you must wrap your application's component tree in a `QueryClientProvider` component from TanStack React Query. None of your generated React SDK hooks will work without this provider.
@@ -81,7 +83,7 @@ const dataConnect = getDataConnect(connectorConfig);
 By default, the connector will connect to the production service.
 
 To connect to the emulator, you can use the following code.
-You can also follow the emulator instructions from the [Data Connect documentation](https://firebase.google.com/docs/data-connect/web-sdk#emulator-react).
+You can also follow the emulator instructions from the [Data Connect documentation](https://firebase.google.com/docs/data-connect/web-sdk#emulator-react-angular).
 
 ```javascript
 import { connectDataConnectEmulator, getDataConnect } from 'firebase/data-connect';
@@ -116,7 +118,7 @@ Here's a general overview of how to use the generated Query hooks in your code:
 - Query hooks functions can be called with or without passing in an `options` argument of type `useDataConnectQueryOptions`. To learn more about the `options` argument, see the [TanStack React Query documentation](https://tanstack.com/query/v5/docs/framework/react/guides/query-options).
   - ***Special case:***  If the Query has all optional variables and you would like to provide an `options` argument to the Query hook function without providing any variables, you must pass `undefined` where you would normally pass the Query's variables, and then may provide the `options` argument.
 
-Below are examples of how to use the `connector` connector's generated Query hook functions to execute each Query. You can also follow the examples from the [Data Connect documentation](https://firebase.google.com/docs/data-connect/web-sdk#use_queries_and_mutations_in_your_react_client).
+Below are examples of how to use the `connector` connector's generated Query hook functions to execute each Query. You can also follow the examples from the [Data Connect documentation](https://firebase.google.com/docs/data-connect/web-sdk#operations-react-angular).
 
 ## HomePage
 You can execute the `HomePage` Query using the following Query hook function, which is defined in [data/react/index.d.ts](./index.d.ts):
@@ -206,8 +208,6 @@ import { connectorConfig } from '@app/data';
 import { useHomePage } from '@app/data/react'
 
 export default function HomePageComponent() {
-
-
   // You don't have to do anything to "execute" the Query.
   // Call the Query hook function to get a `UseQueryResult` object which holds the state of your Query.
   const query = useHomePage();
@@ -298,7 +298,6 @@ import { connectorConfig, SearchMoviesVariables } from '@app/data';
 import { useSearchMovies } from '@app/data/react'
 
 export default function SearchMoviesComponent() {
-
   // The `useSearchMovies` Query hook requires an argument of type `SearchMoviesVariables`:
   const searchMoviesVars: SearchMoviesVariables = {
     query: ..., 
@@ -416,7 +415,6 @@ import { connectorConfig, MoviePageVariables } from '@app/data';
 import { useMoviePage } from '@app/data/react'
 
 export default function MoviePageComponent() {
-
   // The `useMoviePage` Query hook requires an argument of type `MoviePageVariables`:
   const moviePageVars: MoviePageVariables = {
     movieId: ..., 
@@ -529,7 +527,6 @@ import { connectorConfig, WatchHistoryPageVariables } from '@app/data';
 import { useWatchHistoryPage } from '@app/data/react'
 
 export default function WatchHistoryPageComponent() {
-
   // The `useWatchHistoryPage` Query hook has an optional argument of type `WatchHistoryPageVariables`:
   const watchHistoryPageVars: WatchHistoryPageVariables = {
     limit: ..., // optional
@@ -551,7 +548,7 @@ export default function WatchHistoryPageComponent() {
   // You can also pass in a `useDataConnectQueryOptions` object to the Query hook function.
   const options = { staleTime: 5 * 1000 };
   const query = useWatchHistoryPage(watchHistoryPageVars, options);
-  // If you'd like to provide options without providing any variables, you must 
+  // If you'd like to provide options without providing any variables, you must
   // pass `undefined` where you would normally pass the variables.
   const query = useWatchHistoryPage(undefined, options);
 
@@ -635,7 +632,6 @@ import { connectorConfig, BrowseMoviesVariables } from '@app/data';
 import { useBrowseMovies } from '@app/data/react'
 
 export default function BrowseMoviesComponent() {
-
   // The `useBrowseMovies` Query hook has an optional argument of type `BrowseMoviesVariables`:
   const browseMoviesVars: BrowseMoviesVariables = {
     partialTitle: ..., // optional
@@ -662,7 +658,7 @@ export default function BrowseMoviesComponent() {
   // You can also pass in a `useDataConnectQueryOptions` object to the Query hook function.
   const options = { staleTime: 5 * 1000 };
   const query = useBrowseMovies(browseMoviesVars, options);
-  // If you'd like to provide options without providing any variables, you must 
+  // If you'd like to provide options without providing any variables, you must
   // pass `undefined` where you would normally pass the variables.
   const query = useBrowseMovies(undefined, options);
 
@@ -741,7 +737,6 @@ import { connectorConfig, GetMoviesVariables } from '@app/data';
 import { useGetMovies } from '@app/data/react'
 
 export default function GetMoviesComponent() {
-
   // The `useGetMovies` Query hook has an optional argument of type `GetMoviesVariables`:
   const getMoviesVars: GetMoviesVariables = {
     ids: ..., // optional
@@ -763,7 +758,7 @@ export default function GetMoviesComponent() {
   // You can also pass in a `useDataConnectQueryOptions` object to the Query hook function.
   const options = { staleTime: 5 * 1000 };
   const query = useGetMovies(getMoviesVars, options);
-  // If you'd like to provide options without providing any variables, you must 
+  // If you'd like to provide options without providing any variables, you must
   // pass `undefined` where you would normally pass the variables.
   const query = useGetMovies(undefined, options);
 
@@ -859,8 +854,6 @@ import { connectorConfig } from '@app/data';
 import { useDetailedWatchHistory } from '@app/data/react'
 
 export default function DetailedWatchHistoryComponent() {
-
-
   // You don't have to do anything to "execute" the Query.
   // Call the Query hook function to get a `UseQueryResult` object which holds the state of your Query.
   const query = useDetailedWatchHistory();
@@ -918,7 +911,7 @@ Here's a general overview of how to use the generated Mutation hooks in your cod
   - `UseMutationResult.mutate()` also accepts an `options` argument of type `useDataConnectMutationOptions`.
   - ***Special case:*** If the Mutation has no arguments (or all optional arguments and you wish to provide none), and you want to pass `options` to `UseMutationResult.mutate()`, you must pass `undefined` where you would normally pass the Mutation's arguments, and then may provide the options argument.
 
-Below are examples of how to use the `connector` connector's generated Mutation hook functions to execute each Mutation. You can also follow the examples from the [Data Connect documentation](https://firebase.google.com/docs/data-connect/web-sdk#use_queries_and_mutations_in_your_react_client).
+Below are examples of how to use the `connector` connector's generated Mutation hook functions to execute each Mutation. You can also follow the examples from the [Data Connect documentation](https://firebase.google.com/docs/data-connect/web-sdk#operations-react-angular).
 
 ## UpdateUser
 You can execute the `UpdateUser` Mutation using the `UseMutationResult` object returned by the following Mutation hook function (which is defined in [data/react/index.d.ts](./index.d.ts)):

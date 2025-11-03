@@ -16,7 +16,8 @@
 
 import { onAuthStateChanged, User } from "firebase/auth";
 import { useEffect, useState } from "react";
-import { auth } from "./firebase";
+import { auth, dc } from "./firebase";
+import { updateUser } from "../../generated/data";
 
 export function useAuth() {
 	const [isLoading, setIsLoading] = useState(false);
@@ -31,3 +32,13 @@ export function useAuth() {
 
 	return { user: currentUser, isLoading };
 }
+onAuthStateChanged(auth, async (user) => {
+  if (user && !localStorage.getItem("savedUser")) {
+    await updateUser(dc, {
+      username: (user.email?.split("@")[0])!,
+      displayName: user.displayName,
+      imageUrl: user.photoURL,
+    });
+    localStorage.setItem("savedUser", "true");
+  }
+});

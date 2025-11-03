@@ -14,6 +14,24 @@
  * limitations under the License.
  */
 
+/**
+ * Copyright 2025 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+import { addReview, addWatch } from "@/generated/data";
+import { dc } from "@/lib/firebase";
+
 export const USERNAMES = [
   "cinemaScout",
   "flickFanatic88",
@@ -220,3 +238,35 @@ export const USERNAMES = [
   "theReviewReactor",
   "popcornProphecies",
 ];
+export async function submitWatch({
+  movieId, watchDate, watchFormat, rating, reviewText,
+}: {
+  movieId: string;
+  watchDate: Date;
+  watchFormat?: string;
+  rating: number;
+  reviewText: string;
+}) {
+  let reviewId;
+
+  // Only create a review if the user has set a rating
+  if (rating > 0) {
+    // Create the review first
+    const reviewData = await addReview(dc, {
+      movieId,
+      rating,
+      review: reviewText.trim() || null,
+    });
+
+    // Extract the review ID from the response
+    reviewId = reviewData.data.review.id;
+  }
+
+  // Then create the watch with the review ID if available
+  await addWatch(dc, {
+    movieId: movieId,
+    format: watchFormat,
+    watchDate: watchDate.toISOString().substring(0, 10),
+    reviewId: reviewId,
+  });
+}

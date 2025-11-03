@@ -72,7 +72,7 @@ export default function Review({
 	const starValue = rating / 2;
 
 	// Get release year if movie is provided
-	const releaseYear = movie ? new Date(movie.releaseDate).getFullYear() : null;
+	const releaseYear = movie ? new Date(movie.releaseDate).getUTCFullYear() : null;
 
 	// Generate star rating display (filled, half, and empty stars)
 	const renderStars = () => {
@@ -94,7 +94,9 @@ export default function Review({
 
 	// Format review time if provided
 	const formattedTime = reviewTime
-		? new Date(reviewTime).toLocaleDateString()
+		? new Date(`${reviewTime}Z`).toLocaleDateString("en-GB", {
+			timeZone: "UTC",
+		  })
 		: null;
 
 	// Generate a consistent color for the avatar based on the username

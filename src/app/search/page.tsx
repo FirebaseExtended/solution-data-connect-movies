@@ -30,22 +30,21 @@ interface Movie extends BaseMovie {
 // Search page that uses query param ?q to perform a search
 // Currently uses mock data but could be connected to a real API
 
-export default async function SearchPage({
-	searchParams,
-}: { searchParams: { q?: string } }) {
-	const query = searchParams.q;
-	if (!query) redirect("/");
+export default async function SearchPage(props: { searchParams: Promise<{ q?: string }> }) {
+    const searchParams = await props.searchParams;
+    const query = searchParams.q;
+    if (!query) redirect("/");
 
-	const {
+    const {
 		data: { movies },
 	} = await searchMovies(dc, { query });
 
-	// Extract release year from the date
-	const getYear = (dateString: string) => {
+    // Extract release year from the date
+    const getYear = (dateString: string) => {
 		return new Date(dateString).getFullYear();
 	};
 
-	return (
+    return (
 		<div className="max-w-3xl py-8 mx-auto">
 			{/* Search results */}
 			<div>

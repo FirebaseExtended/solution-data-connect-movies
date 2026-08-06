@@ -32,7 +32,7 @@ We recommend trying out this project in Firebase Studio. Click this button to la
 
 The demo can be run in Firebase Studio using the built-in Firebase emulators.
 
-However, for singing in and AI movie recommendations you need to set up a Firebase project, enable Vertex AI and the recommended APIs:
+However, for signing in and AI movie recommendations you need to set up a Firebase project, enable Vertex AI and the recommended APIs:
 
 1. A new Firebase project
    - *We recommended using a new Firebase project for this demo. This [simplifies cleanup](#delete-and-clean-up-deployed-services) to avoid incurring on-going costs after trying out this demo app.*
